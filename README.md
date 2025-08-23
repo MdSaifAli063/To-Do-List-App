@@ -127,6 +127,7 @@ Fork the repo
 Create a feature branch
 Commit with clear messages
 Open a pull request with a concise summary and screenshots (if UI changes)
+
 License
 
 Add your preferred license here (e.g., MIT). If you choose MIT, create a LICENSE file with the MIT terms.

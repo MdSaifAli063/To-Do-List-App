@@ -1,0 +1,503 @@
+/* 
+  To‑Do App Styles
+  - Beautiful, responsive, app-like UI
+  - Light/Dark themes via [data-theme="..."] on html
+  - Accessible focus styles, reduced motion support
+  - Works gracefully even if list items are generated dynamically
+*/
+
+/* 1) CSS Reset / Base Normalize */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
+    Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  accent-color: var(--brand);
+}
+
+/* 2) Theme tokens */
+:root {
+  /* Brand */
+  --brand: #6366f1;         /* Indigo-500 */
+  --brand-600: #5457ee;     /* Slightly darker */
+  --brand-700: #474ae0;
+
+  /* Light theme */
+  --bg: linear-gradient(135deg, #f8fafc 0%, #eef2ff 60%, #f8fafc 100%);
+  --panel: #ffffff;
+  --surface: #ffffff;
+  --text: #0f172a;          /* slate-900 */
+  --muted: #475569;         /* slate-600 */
+  --muted-2: #64748b;       /* slate-500 */
+  --border: #e5e7eb;        /* gray-200 */
+  --shadow-color: 33, 33, 52;
+
+  /* States */
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+
+  /* Effects */
+  --ring: 0 0 0 4px color-mix(in oklab, var(--brand) 25%, transparent);
+  --shadow-xs: 0 1px 2px rgba(var(--shadow-color), 0.05);
+  --shadow-sm: 0 2px 8px rgba(var(--shadow-color), 0.08);
+  --shadow-md: 0 8px 24px rgba(var(--shadow-color), 0.10);
+  --shadow-lg: 0 12px 40px rgba(var(--shadow-color), 0.12);
+
+  /* Radius & spacing */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+}
+
+html[data-theme="dark"] {
+  --bg: radial-gradient(80rem 50rem at 10% 10%, #0b1020 0%, #0a0f1a 35%, #070a12 60%, #05070d 100%);
+  --panel: #0f1528;       /* deep indigo-ish */
+  --surface: #0d1324;
+  --text: #e5e7eb;        /* gray-200 */
+  --muted: #cbd5e1;       /* slate-300 */
+  --muted-2: #94a3b8;     /* slate-400 */
+  --border: #1e293b;      /* slate-800 */
+  --shadow-color: 0, 0, 0;
+  --ring: 0 0 0 4px color-mix(in oklab, var(--brand) 40%, transparent);
+}
+
+/* 3) Accessibility focus */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  box-shadow: var(--ring);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  border-radius: 12px; /* catch most interactive controls */
+}
+
+/* 4) Layout: app container as a card */
+.container {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto auto auto auto 1fr auto;
+  padding: clamp(12px, 1.6vw, 20px);
+  max-width: 880px;
+  margin-inline: auto;
+  gap: clamp(10px, 1.6vw, 18px);
+}
+
+.app-header,
+.input-container,
+.toolbar,
+.bulk-actions,
+.app-footer,
+#todo-list {
+  background: color-mix(in oklab, var(--panel) 96%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+}
+
+/* 5) Header */
+.app-header {
+  position: sticky;
+  top: clamp(8px, 1.2vw, 12px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(10px, 2vw, 16px) clamp(12px, 2vw, 18px);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--brand) 95%, #ffffff) 0%, var(--brand-700) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 6) Buttons */
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 0;
+  background: none;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  background: color-mix(in oklab, var(--panel) 92%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+}
+.icon-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  background: color-mix(in oklab, var(--panel) 98%, transparent);
+}
+
+.primary-btn,
+#add-task-btn {
+  padding: 0.7rem 1.1rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--brand), var(--brand-600));
+  color: white;
+  font-weight: 700;
+  letter-spacing: .01em;
+  box-shadow: 0 6px 14px rgba(99, 102, 241, .3);
+  transition: transform .15s ease, filter .2s ease, box-shadow .2s ease;
+}
+.primary-btn:hover,
+#add-task-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+.primary-btn:active,
+#add-task-btn:active {
+  transform: translateY(0);
+}
+
+.secondary-btn {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--panel) 95%, transparent);
+  color: var(--text);
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
+  box-shadow: var(--shadow-xs);
+}
+.secondary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+.secondary-btn.danger {
+  border-color: color-mix(in oklab, var(--danger) 35%, var(--border));
+  color: color-mix(in oklab, var(--danger) 70%, var(--text));
+}
+.secondary-btn.danger:hover {
+  background: color-mix(in oklab, var(--danger) 14%, transparent);
+}
+
+/* 7) Inputs */
+input[type="text"] {
+  width: 100%;
+  padding: .8rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--surface) 96%, transparent);
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+input[type="text"]::placeholder {
+  color: var(--muted-2);
+}
+input[type="text"]:focus {
+  border-color: color-mix(in oklab, var(--brand) 45%, var(--border));
+  box-shadow: var(--ring);
+}
+
+/* 8) Input top bar */
+.input-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: clamp(10px, 1.8vw, 14px);
+}
+
+/* 9) Toolbar: filters + search */
+.toolbar {
+  display: grid;
+  gap: 10px;
+  padding: clamp(10px, 1.8vw, 14px);
+}
+
+@media (min-width: 640px) {
+  .toolbar {
+    grid-template-columns: 1fr minmax(220px, 360px);
+    align-items: center;
+  }
+}
+
+.filters {
+  display: inline-flex;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--panel) 92%, transparent);
+  box-shadow: var(--shadow-xs);
+}
+
+.filter-btn {
+  padding: .5rem .9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--muted);
+  transition: color .2s ease, background .2s ease, transform .12s ease;
+}
+.filter-btn:hover {
+  transform: translateY(-1px);
+}
+.filter-btn.is-active,
+.filter-btn[aria-selected="true"] {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--brand) 12%, transparent), transparent);
+  color: var(--text);
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.03);
+}
+
+.search-wrap {
+  position: relative;
+}
+.search-wrap::before {
+  content: "🔎";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  translate: 0 -50%;
+  opacity: .7;
+  pointer-events: none;
+}
+#search-input {
+  padding-left: 2.2rem;
+}
+
+/* 10) Bulk actions */
+.bulk-actions {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* 11) List styles */
+#todo-list {
+  list-style: none;
+  margin: 0;
+  padding: clamp(8px, 1.2vw, 12px);
+  display: grid;
+  gap: 10px;
+}
+
+/* Generic item styles — works even if structure varies */
+#todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: color-mix(in oklab, var(--surface) 96%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+#todo-list li:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in oklab, var(--brand) 20%, var(--border));
+  background: color-mix(in oklab, var(--surface) 98%, transparent);
+}
+
+/* Allow for the common structure: checkbox + title + actions */
+#todo-list li input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+#todo-list li .task-title,
+#todo-list li label,
+#todo-list li .title,
+#todo-list li [data-role="title"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--text);
+  font-weight: 600;
+  word-break: break-word;
+}
+
+#todo-list li.completed .task-title,
+#todo-list li.completed label,
+#todo-list li.completed .title,
+#todo-list li.completed [data-role="title"] {
+  text-decoration: line-through;
+  color: color-mix(in oklab, var(--muted) 70%, transparent);
+}
+
+#todo-list li .actions {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+#todo-list .drag-handle {
+  cursor: grab;
+  opacity: .7;
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+#todo-list .drag-handle:active {
+  cursor: grabbing;
+}
+
+#todo-list li.editing {
+  border-color: color-mix(in oklab, var(--brand) 35%, var(--border));
+  box-shadow: var(--ring), var(--shadow-xs);
+}
+#todo-list li.editing input[type="text"],
+#todo-list li.editing [contenteditable="true"] {
+  background: color-mix(in oklab, var(--surface) 98%, transparent);
+  border-color: color-mix(in oklab, var(--brand) 35%, var(--border));
+}
+
+/* Button looks inside items */
+#todo-list li .icon-btn,
+#todo-list li .secondary-btn {
+  width: auto;
+  height: auto;
+  padding: .45rem .65rem;
+  border-radius: 10px;
+}
+
+#todo-list li .danger,
+#todo-list li .delete-btn {
+  color: color-mix(in oklab, var(--danger) 70%, var(--text));
+  border-color: color-mix(in oklab, var(--danger) 30%, var(--border));
+}
+
+/* Enter/leave micro-animation base (JS can toggle .enter/.leave) */
+@keyframes item-pop {
+  from { transform: scale(.98); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+#todo-list li.enter {
+  animation: item-pop .18s ease-out both;
+}
+
+/* 12) Footer */
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(10px, 1.8vw, 14px) clamp(12px, 2vw, 18px);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.app-footer .hint {
+  color: var(--muted-2);
+}
+
+@media (max-width: 420px) {
+  .app-footer .hint {
+    display: none;
+  }
+}
+
+/* 13) Responsive tweaks */
+@media (max-width: 540px) {
+  .input-container {
+    grid-template-columns: 1fr;
+  }
+  #add-task-btn {
+    width: 100%;
+  }
+  .bulk-actions {
+    gap: 8px;
+  }
+}
+
+@media (min-width: 920px) {
+  .container {
+    max-width: 980px;
+  }
+}
+
+/* 14) Subtle app-like separators */
+.app-header,
+.toolbar,
+.bulk-actions,
+.app-footer {
+  position: relative;
+}
+.app-header::after,
+.toolbar::after,
+.bulk-actions::after,
+.app-footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04), inset 0 -1px 0 rgba(0,0,0,.04);
+}
+
+/* 15) Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* 16) Utility classes that JS or markup may toggle */
+.hidden { display: none !important; }
+.muted { color: var(--muted); }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: .25rem .5rem;
+  font-weight: 700;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--brand) 10%, transparent);
+  border: 1px solid color-mix(in oklab, var(--brand) 20%, var(--border));
+}
+
+/* 17) Safe-area padding for notch devices */
+@supports (padding: max(0px)) {
+  .container {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}

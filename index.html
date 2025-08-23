@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To‑Do List App</title>
+  <meta name="theme-color" content="#6366f1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1>To‑Do</h1>
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" aria-pressed="false" title="Toggle light/dark">🌙</button>
+      </div>
+    </header>
+
+    <div class="input-container">
+      <input type="text" id="todo-input" placeholder="Add a new task..." autocomplete="off" />
+      <button id="add-task-btn">Add Task</button>
+    </div>
+
+    <div class="toolbar">
+      <div class="filters" role="tablist" aria-label="Filter tasks">
+        <button class="filter-btn is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+        <button class="filter-btn" role="tab" aria-selected="false" data-filter="active">Active</button>
+        <button class="filter-btn" role="tab" aria-selected="false" data-filter="completed">Completed</button>
+      </div>
+      <div class="search-wrap">
+        <input id="search-input" type="text" placeholder="Search tasks..." aria-label="Search tasks" />
+      </div>
+    </div>
+
+    <div class="bulk-actions">
+      <button id="toggle-all-btn" class="secondary-btn">Toggle All</button>
+      <button id="clear-completed-btn" class="secondary-btn danger">Clear Completed</button>
+    </div>
+
+    <ul id="todo-list" aria-live="polite" aria-label="To-do list"></ul>
+
+    <footer class="app-footer">
+      <span id="items-left">0 items left</span>
+      <span class="hint">Tip: Drag to reorder • Double‑click to edit</span>
+    </footer>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

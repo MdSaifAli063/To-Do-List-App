@@ -43,10 +43,6 @@ Option B — Serve locally (recommended for consistent dev experience):
   # then open the printed URL (e.g., http://localhost:3000)
   ```
 
-Copy
-
-Insert
-
 Using Python:
 
 # Python 3
@@ -58,10 +54,6 @@ python3 -m http.server 5173
 python -m SimpleHTTPServer 5173
 
 # then visit http://localhost:5173
-
-Copy
-
-Insert
 
 Usage
 Add a task: type in “Add a new task…” and click “Add Task” (Enter in the input often works as well)
@@ -81,13 +73,11 @@ Project Structure
 ├── style.css # UI styles and theme variables
 └── script.js # App logic: state, events, filtering, drag-and-drop, etc.
 
-Copy
-
-Insert
 
 You may add assets under an assets/ or public/ directory if needed.
 
 Accessibility
+
 Uses appropriate roles and attributes:
 Filter buttons grouped as a role="tablist" with aria-selected
 Live updates announced via aria-live="polite" on the to‑do list
@@ -109,7 +99,9 @@ Development Notes
 No build step required
 Modify styles in style.css; update interactions and state handling in script.js
 If you add dependencies or tooling later, document them here
+
 Troubleshooting
+
 Nothing happens when clicking “Add Task”:
 Open DevTools console for errors
 Ensure script.js is loading (check 200 response in Network tab)
@@ -119,7 +111,9 @@ Check your browser and try a fresh reload without extensions
 Theme doesn’t persist:
 Verify script.js logic and storage writes
 Clear site data and try again
+
 Roadmap Ideas
+
 Task due dates and reminders
 Subtasks / checklists
 Multi‑list support (projects)
@@ -129,8 +123,10 @@ Contributing
 Contributions are welcome! Please:
 
 Fork the repo
+
 Create a feature branch
 Commit with clear messages
 Open a pull request with a concise summary and screenshots (if UI changes)
 License
+
 Add your preferred license here (e.g., MIT). If you choose MIT, create a LICENSE file with the MIT terms.

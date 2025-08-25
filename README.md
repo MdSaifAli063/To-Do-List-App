@@ -22,7 +22,7 @@ Tip in the UI: “Drag to reorder • Double‑click to edit”
 - Local: see Quick Start below
 - Open `index.html` locally or serve via a static server (recommended for geolocation).
 - Example screenshot(s): add your own in a `/Screenshot` folder and reference here.
-- ![image]()
+- ![image](https://github.com/Mdsaif4363/To-Do-List-App/blob/1a47697c0e2f0e68ce41b16d79dec944cd5194ba/Screenshot%202025-08-25%20161715.png)
 
 ## Tech Stack
 

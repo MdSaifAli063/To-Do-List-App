@@ -20,7 +20,9 @@ Tip in the UI: “Drag to reorder • Double‑click to edit”
 ## Demo
 
 - Local: see Quick Start below
-- Hosted: add your deployment URL here (e.g., GitHub Pages, Netlify, Vercel)
+- Open `index.html` locally or serve via a static server (recommended for geolocation).
+- Example screenshot(s): add your own in a `/Screenshot` folder and reference here.
+- ![image]()
 
 ## Tech Stack
 

@@ -3,6 +3,8 @@
 A clean, fast, and accessible to‑do list built with vanilla web technologies.  
 Organize your tasks, filter, search, drag to reorder, and toggle themes — all without dependencies.
 
+-Preview
+
  ![image](https://github.com/Mdsaif4363/To-Do-List-App/blob/1a47697c0e2f0e68ce41b16d79dec944cd5194ba/Screenshot%202025-08-25%20161715.png)
 
 <p align="center">

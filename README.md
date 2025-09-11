@@ -105,6 +105,7 @@ Tip: Drag a task to reorder it.
 - Create a feature branch
 - Commit with clear messages
 - Open a PR — PRs welcome!
+- Made in India!
 
 ---
 

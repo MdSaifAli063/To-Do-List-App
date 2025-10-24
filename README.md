@@ -3,10 +3,6 @@
 A clean, fast, and accessible to‑do list built with vanilla web technologies.  
 Organize your tasks, filter, search, drag to reorder, and toggle themes — all without dependencies.
 
--Preview
-
- ![image](https://github.com/Mdsaif4363/To-Do-List-App/blob/1a47697c0e2f0e68ce41b16d79dec944cd5194ba/Screenshot%202025-08-25%20161715.png)
-
 <p align="center">
   <a href="#"><img alt="Built with HTML" src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white"></a>
   <a href="#"><img alt="Styled with CSS" src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white"></a>
@@ -14,6 +10,10 @@ Organize your tasks, filter, search, drag to reorder, and toggle themes — all 
   <a href="#"><img alt="License" src="https://img.shields.io/badge/License-MIT-22c55e"></a>
   <a href="#"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-Welcome-6366f1"></a>
 </p>
+
+-Preview
+
+ ![image](https://github.com/Mdsaif4363/To-Do-List-App/blob/1a47697c0e2f0e68ce41b16d79dec944cd5194ba/Screenshot%202025-08-25%20161715.png)
 
 ---
 

@@ -11,7 +11,7 @@ Organize your tasks, filter, search, drag to reorder, and toggle themes — all 
   <a href="#"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-Welcome-6366f1"></a>
 </p>
 
--Preview
+- Preview
 
  ![image](https://github.com/Mdsaif4363/To-Do-List-App/blob/1a47697c0e2f0e68ce41b16d79dec944cd5194ba/Screenshot%202025-08-25%20161715.png)
 

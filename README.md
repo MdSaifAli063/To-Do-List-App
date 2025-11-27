@@ -76,12 +76,14 @@ Tip: Drag a task to reorder it.
 
 ## 🧱 Project Structure
 
+```pqsql
 . ├─ index.html 
 # App markup and metadata 
 ├─ style.css 
-# Styles, light/dark themes, layout, animations └─ script.js 
+# Styles, light/dark themes, layout, animations 
+└─ script.js 
 # App logic: CRUD, filters, search, drag/reorder, a11y
-
+```
 ---
 
 ## 🔧 Configuration

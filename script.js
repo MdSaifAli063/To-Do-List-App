@@ -322,7 +322,6 @@
     render();
   }
 
-  // ---------- Drag and Drop ----------
   function initDragAndDrop() {
     listEl.addEventListener('dragstart', (e) => {
       const li = e.target.closest('li');

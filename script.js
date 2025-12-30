@@ -271,7 +271,6 @@
     if (!oldTask) return;
 
     if (!newText) {
-      // Empty title deletes the task
       deleteTask(id);
       return;
     }

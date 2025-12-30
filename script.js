@@ -201,7 +201,7 @@
     const left = tasks.filter(t => !t.completed).length;
     itemsLeftEl.textContent = `${pluralize(left, 'item')} left`;
 
-    // Try to restore focus on previously focused title after rerender
+
     if (prevFocusId && prevSelIsTitle) {
       const el = listEl.querySelector(`li[data-id="${prevFocusId}"] .task-title`);
       if (el) setCaretIndex(el, prevSelStart);

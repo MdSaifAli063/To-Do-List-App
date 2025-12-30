@@ -383,7 +383,6 @@
     saveTasks();
   }
 
-  // ---------- Caret helpers for contenteditable ----------
   function selectAllText(el) {
     const range = document.createRange();
     range.selectNodeContents(el);

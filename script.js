@@ -397,7 +397,6 @@
     if (!sel || sel.rangeCount === 0) return null;
     const range = sel.getRangeAt(0);
     if (!el.contains(range.startContainer)) return null;
-    // Count characters from start
     const preRange = range.cloneRange();
     preRange.selectNodeContents(el);
     preRange.setEnd(range.startContainer, range.startOffset);

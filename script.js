@@ -224,7 +224,8 @@
     inputEl.value = '';
     inputEl.focus();
     render();
-    // Entry animation
+
+
     const li = listEl.querySelector(`li[data-id="${task.id}"]`);
     if (li) {
       li.classList.add('enter');
@@ -254,7 +255,7 @@
     li.classList.add('editing');
     titleEl.setAttribute('contenteditable', 'true');
     titleEl.setAttribute('aria-readonly', 'false');
-    // Move caret to end
+  
     requestAnimationFrame(() => {
       titleEl.focus();
       selectAllText(titleEl);

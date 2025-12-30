@@ -32,7 +32,6 @@
   let currentFilter = loadFilter() || 'all';
   let searchQuery = '';
 
-  // ---------- Utils ----------
   function uid() {
     return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
   }
@@ -83,7 +82,7 @@
     return Math.max(min, Math.min(max, n));
   }
 
-  // ---------- Theme ----------
+
   function initTheme() {
     const stored = localStorage.getItem(STORAGE_KEYS.theme);
     let theme = stored;

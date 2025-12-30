@@ -449,7 +449,6 @@
       }
     });
 
-    // Filters
     for (const btn of filterButtons) {
       btn.addEventListener('click', () => {
         setFilter(btn.dataset.filter);

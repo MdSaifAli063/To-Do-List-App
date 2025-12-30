@@ -21,7 +21,7 @@
 
   const themeToggleBtn = $('#theme-toggle');
 
-  // ---------- Storage Keys ----------
+
   const STORAGE_KEYS = {
     tasks: 'todo:tasks',
     theme: 'todo:theme',

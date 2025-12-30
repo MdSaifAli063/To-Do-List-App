@@ -374,7 +374,6 @@
 
   function persistOrderFromDOM() {
     const idsInOrder = $$('#todo-list li').map(li => li.dataset.id);
-    // Map to new order indices spaced by 1
     const orderMap = new Map(idsInOrder.map((id, idx) => [id, idx]));
     for (const t of tasks) {
       if (orderMap.has(t.id)) {

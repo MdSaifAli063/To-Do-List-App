@@ -461,7 +461,6 @@
     }, 120);
     searchInput.addEventListener('input', onSearch);
 
-    // Toggle all, clear completed
     toggleAllBtn.addEventListener('click', toggleAll);
     clearCompletedBtn.addEventListener('click', clearCompleted);
 

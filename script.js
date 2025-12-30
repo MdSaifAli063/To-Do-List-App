@@ -106,21 +106,21 @@
     applyTheme(current === 'dark' ? 'light' : 'dark');
   }
 
-  // ---------- Rendering ----------
+ 
   function filteredTasks() {
     let list = [...tasks];
 
-    // Filter by tab
+ 
     if (currentFilter === 'active') list = list.filter(t => !t.completed);
     else if (currentFilter === 'completed') list = list.filter(t => t.completed);
 
-    // Filter by search
+  
     if (searchQuery.trim()) {
       const q = searchQuery.trim().toLowerCase();
       list = list.filter(t => t.title.toLowerCase().includes(q));
     }
 
-    // Sort by explicit order, fallback by createdAt
+    
     list.sort((a, b) => (a.order - b.order) || (a.createdAt - b.createdAt));
     return list;
   }
@@ -131,7 +131,7 @@
     li.className = task.completed ? 'completed' : '';
     li.setAttribute('draggable', 'true');
 
-    // Drag handle
+  
     const handle = document.createElement('button');
     handle.className = 'drag-handle secondary-btn';
     handle.type = 'button';
@@ -139,14 +139,13 @@
     handle.setAttribute('aria-label', 'Drag to reorder');
     handle.textContent = '⋮⋮';
 
-    // Toggle checkbox
+ 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'toggle';
     checkbox.checked = !!task.completed;
     checkbox.setAttribute('aria-label', 'Mark complete');
 
-    // Title (contenteditable on edit)
     const title = document.createElement('div');
     title.className = 'task-title';
     title.textContent = task.title;
@@ -154,7 +153,7 @@
     title.setAttribute('role', 'textbox');
     title.setAttribute('aria-readonly', 'true');
 
-    // Actions
+
     const actions = document.createElement('div');
     actions.className = 'actions';
 

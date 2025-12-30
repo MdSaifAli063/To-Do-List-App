@@ -1,118 +1,136 @@
 # ✅ To‑Do List App
 
-A clean, fast, and accessible to‑do list built with vanilla web technologies.  
-Organize your tasks, filter, search, drag to reorder, and toggle themes — all without dependencies.
+A lightweight, accessible, and responsive to‑do app built with vanilla HTML, CSS, and JavaScript. It supports filtering, searching, drag‑and‑drop reordering, in‑place editing, bulk actions, and a light/dark theme toggle.
 
-![screenshot](./screenshot.png)
+Tip in the UI: “Drag to reorder • Double‑click to edit”
 
-<p align="center">
-  <a href="#"><img alt="Built with HTML" src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white"></a>
-  <a href="#"><img alt="Styled with CSS" src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white"></a>
-  <a href="#"><img alt="Vanilla JS" src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000"></a>
-  <a href="#"><img alt="License" src="https://img.shields.io/badge/License-MIT-22c55e"></a>
-  <a href="#"><img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-Welcome-6366f1"></a>
-</p>
+## Features
 
----
+- Add new tasks quickly
+- Edit tasks in place (double‑click to edit)
+- Mark tasks as completed/active
+- Filter by All, Active, Completed
+- Search tasks by text
+- Bulk actions: Toggle All, Clear Completed
+- Drag and drop to reorder tasks
+- Light/Dark theme toggle (persists via `data-theme` on the `<html>` element)
+- 100% client‑side, no backend required
+- Accessible HTML with ARIA roles and live region updates
 
-## ✨ Features
+## Demo
 
-- 🌗 Theme toggle (Light/Dark)
-- ➕ Add tasks quickly
-- ✅ Mark complete / ⏳ Keep active
-- 🧰 Bulk actions: Toggle all • Clear completed
-- 🧭 Filters: All • Active • Completed
-- 🔎 Instant search
-- ✏️ Inline edit (double‑click to rename)
-- ↕️ Drag to reorder
-- 🔔 Live updates with ARIA announcements
-- 💨 Zero dependencies — just open and use
+- Local: see Quick Start below
+- Hosted: add your deployment URL here (e.g., GitHub Pages, Netlify, Vercel)
 
----
+## Tech Stack
 
-## 🚀 Getting Started
+- HTML5 (semantic structure, ARIA)
+- CSS3 (responsive layout, theming)
+- JavaScript (vanilla, no frameworks)
 
-- Option A: Open `index.html` directly in your browser.
-- Option B: Serve locally (recommended for best dev experience):
-  - Using Node:
-    - npx serve .
-  - Using Python:
-    - python3 -m http.server 5173
-    - Open http://localhost:5173
+## Quick Start
 
-No build step needed.
+Option A — Just open the file:
 
----
+1. Clone or download this repo
+2. Open `index.html` in a modern browser
 
-## 🧭 Usage
+Option B — Serve locally (recommended for consistent dev experience):
 
-- Type in “Add a new task…” and press Enter or click “Add Task”.
-- Click a task’s checkbox to toggle completion.
-- Double‑click a task label to edit; press Enter to save, Esc to cancel.
-- Use filters to view All / Active / Completed.
-- Use the search box to quickly find tasks.
-- “Toggle All” switches all tasks between active/completed.
-- “Clear Completed” removes only completed tasks.
-- Click the moon/sun button to switch themes.
+- Using Node.js (npx):
+  ```bash
+  npx serve .
+  # then open the printed URL (e.g., http://localhost:3000)
+  ```
 
-Tip: Drag a task to reorder it.
+Copy
 
----
+Insert
 
-## ♿ Accessibility
+Using Python:
 
-- Roles and ARIA:
-  - Filter tabs use role="tab" with proper aria-selected.
-  - List updates announced via aria-live="polite".
-  - Buttons and inputs include accessible labels.
-- Keyboard:
-  - Enter to add or confirm edits.
-  - Esc to cancel edits.
-  - Tab/Shift+Tab for navigation across interactive elements.
+# Python 3
 
----
+python3 -m http.server 5173
 
-## 🧱 Project Structure
+# Python 2
 
+python -m SimpleHTTPServer 5173
 
-. ├─ index.html # App markup and metadata ├─ style.css # Styles, light/dark themes, layout, animations └─ script.js # App logic: CRUD, filters, search, drag/reorder, a11y
+# then visit http://localhost:5173
 
+Copy
 
----
+Insert
 
-## 🔧 Configuration
+Usage
+Add a task: type in “Add a new task…” and click “Add Task” (Enter in the input often works as well)
+Toggle theme: click the moon/sun button in the header
+Mark complete: use the task’s complete toggle (e.g., checkbox or control in the list)
+Edit: double‑click a task, make changes, then confirm (usually Enter or blur to save, Esc to cancel if implemented)
+Reorder: drag a task and drop it in the desired position
+Filter: use the All / Active / Completed tabs
+Search: type in the “Search tasks…” box to filter by text
+Bulk:
+Toggle All: toggle all tasks between active/completed
+Clear Completed: remove all completed tasks
+Items left: see the counter in the footer for remaining active tasks
+Project Structure
+.
+├── index.html # App markup and theme meta
+├── style.css # UI styles and theme variables
+└── script.js # App logic: state, events, filtering, drag-and-drop, etc.
 
-- Theme: Controlled via the root html[data-theme] attribute and the Theme Toggle button.
-- Search: Matches task text as you type.
-- Filters: Managed via data-filter attributes on filter buttons.
+Copy
 
----
+Insert
 
-## 🧪 Ideas & Roadmap
+You may add assets under an assets/ or public/ directory if needed.
 
-- 💾 Persist tasks and theme to localStorage
-- 📱 Mobile gesture enhancements
-- 🌐 i18n support
-- ⌨️ More keyboard shortcuts (e.g., Ctrl+Enter to add)
+Accessibility
+Uses appropriate roles and attributes:
+Filter buttons grouped as a role="tablist" with aria-selected
+Live updates announced via aria-live="polite" on the to‑do list
+Keyboard and screen reader friendly structure
+Color‑contrast friendly theming; customize in style.css if needed
+If you find any accessibility issues, please open an issue or PR.
 
----
+Theming
+The root <html> element uses data-theme="light" or data-theme="dark"
+The theme toggle button (#theme-toggle) flips the theme and may persist the choice (implementation in script.js)
+The <meta name="theme-color"> sets the browser UI color; keep it in sync with your theme brand color
+Persistence
+This app is fully client‑side and can store data in the browser (e.g., localStorage) so no server is required
+Check script.js for the exact persistence approach and key names
+Browser Support
+Latest versions of Chrome, Edge, Firefox, and Safari
+No Internet Explorer support
+Development Notes
+No build step required
+Modify styles in style.css; update interactions and state handling in script.js
+If you add dependencies or tooling later, document them here
+Troubleshooting
+Nothing happens when clicking “Add Task”:
+Open DevTools console for errors
+Ensure script.js is loading (check 200 response in Network tab)
+Drag and drop feels off:
+Confirm that pointer events are not blocked by CSS
+Check your browser and try a fresh reload without extensions
+Theme doesn’t persist:
+Verify script.js logic and storage writes
+Clear site data and try again
+Roadmap Ideas
+Task due dates and reminders
+Subtasks / checklists
+Multi‑list support (projects)
+Import/export tasks (JSON)
+Unit tests and CI
+Contributing
+Contributions are welcome! Please:
 
-## 🤝 Contributing
-
-- Fork the repo
-- Create a feature branch
-- Commit with clear messages
-- Open a PR — PRs welcome!
-
----
-
-## 📄 License
-
-MIT License. Do anything, just include the license and attribution.
-
----
-
-## 🙌 Acknowledgements
-
-- Emojis for delightful icons
-- Vanilla web platform FTW 🎉
+Fork the repo
+Create a feature branch
+Commit with clear messages
+Open a pull request with a concise summary and screenshots (if UI changes)
+License
+Add your preferred license here (e.g., MIT). If you choose MIT, create a LICENSE file with the MIT terms.

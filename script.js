@@ -411,7 +411,6 @@
     const sel = window.getSelection();
     const range = document.createRange();
 
-    // Find text node and offset
     let remaining = clamped;
     function place(node) {
       if (node.nodeType === Node.TEXT_NODE) {

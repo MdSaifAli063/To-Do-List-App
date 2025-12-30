@@ -432,7 +432,6 @@
       return false;
     }
     if (!place(el)) {
-      // fallback to end
       range.selectNodeContents(el);
       range.collapse(false);
       sel.removeAllRanges();

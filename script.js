@@ -280,7 +280,7 @@
     }
     stopEditing(li);
     render();
-    // restore focus on edited item
+
     const titleElNew = listEl.querySelector(`li[data-id="${id}"] .task-title`);
     if (titleElNew) titleElNew.focus();
   }

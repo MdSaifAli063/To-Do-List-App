@@ -381,7 +381,6 @@
       }
     }
     saveTasks();
-    // No need to re-render since the DOM already shows order, but state changed
   }
 
   // ---------- Caret helpers for contenteditable ----------

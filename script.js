@@ -439,7 +439,7 @@
     }
   }
 
-  // ---------- Event Wiring ----------
+
   function bindEvents() {
     // Add task
     addBtn.addEventListener('click', addTaskFromInput);

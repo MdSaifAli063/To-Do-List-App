@@ -455,7 +455,6 @@
       });
     }
 
-    // Search
     const onSearch = debounce((e) => {
       searchQuery = e.target.value || '';
       render();

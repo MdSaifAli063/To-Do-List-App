@@ -2,7 +2,6 @@
 (function () {
   'use strict';
 
-  // ---------- DOM References ----------
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 

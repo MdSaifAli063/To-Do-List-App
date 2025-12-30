@@ -181,7 +181,7 @@
     const prevSelStart = getCaretIndex(document.activeElement);
     const prevSelIsTitle = document.activeElement?.classList?.contains('task-title');
 
-    // Clear list
+    
     listEl.innerHTML = '';
 
     const items = filteredTasks();
@@ -190,14 +190,14 @@
       listEl.appendChild(el);
     }
 
-    // Update selected filter button UI
+
     for (const btn of filterButtons) {
       const isActive = btn.dataset.filter === currentFilter;
       btn.classList.toggle('is-active', isActive);
       btn.setAttribute('aria-selected', String(isActive));
     }
 
-    // Update items left
+  
     const left = tasks.filter(t => !t.completed).length;
     itemsLeftEl.textContent = `${pluralize(left, 'item')} left`;
 

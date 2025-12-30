@@ -1,15 +1,3 @@
-/**
- * To‑Do App Script
- * Features:
- * - Add/edit/delete tasks
- * - Toggle complete, toggle all, clear completed
- * - Filters: all/active/completed
- * - Search with debounce
- * - Drag and drop reordering with persistent order
- * - Accessible interactions (keyboard, ARIA)
- * - Light/Dark theme toggle, saved to localStorage
- * - State persistence to localStorage
- */
 
 (function () {
   'use strict';

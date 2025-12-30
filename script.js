@@ -28,7 +28,6 @@
     filter: 'todo:filter',
   };
 
-  // ---------- State ----------
   let tasks = [];
   let currentFilter = loadFilter() || 'all';
   let searchQuery = '';

@@ -441,7 +441,7 @@
 
 
   function bindEvents() {
-    // Add task
+
     addBtn.addEventListener('click', addTaskFromInput);
     inputEl.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
